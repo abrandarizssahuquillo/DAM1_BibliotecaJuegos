@@ -6,6 +6,7 @@
 package pro_bibliotecajuegos;
 
 import pro_bibliotecajuegos.controller.TrivialTurnController;
+import pro_bibliotecajuegos.view.TrivialQuestionView;
 
 /**
  *
@@ -17,8 +18,8 @@ public class PRO_BibliotecaJuegos {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        TrivialTurnController game = new TrivialTurnController();
-        game.partida();
+        TrivialQuestionView trvw = new TrivialQuestionView();
+        trvw.setVisible(true);
     }
     
 }
