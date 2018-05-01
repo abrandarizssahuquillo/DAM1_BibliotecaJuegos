@@ -1,0 +1,2 @@
+¿Cal das seguintes afirmacións non é correcta?,Os documentos XML teñen varios elementos raíz,Os documentos XML teñen unha estructura xerárquica,Nos documentos XML non se poden crear nomes que empezen por XML,Nos documentos XML os elementos teñen etiqueta de apertura e etiqueta de peche
+¿Cal dos seguintes é un elemento optativo de canal nun documento RSS 2.0?,Language,Description,Link,Title

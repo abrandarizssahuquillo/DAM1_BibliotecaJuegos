@@ -1,0 +1,2 @@
+Dos seguintes acrónimos ¿Cal é un Sistema Xestor de Bases de Datos?,MySQL,EXCEL,BASE,Ningún
+Nunha base de datos de tipo relacional...,Os rexistros son as filas dás táboas,Os rexistros son as columnas das táboas,Os campos son as filas das táboas,As tuplas son as columnas das táboas

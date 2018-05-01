@@ -1,0 +1,3 @@
+﻿¿Cómo se escribe unha sentenza selectiva ou condicional en Java?,if (...) {};,for (...) {};,try {} catch (...) {};,do {} while (...);
+¿Cál non é unha linguaxe de programación?,Visual Basic.net,Kotlin,Python,HTML (HTML é unha linguaxe de etiquetas)
+¿Para qué se emprega o operador break nun switch?,Finalizar a evaluación de condicións,Rematar o programa,Saltar a outro método,Poder controlar o funcionamento do programa paso a paso

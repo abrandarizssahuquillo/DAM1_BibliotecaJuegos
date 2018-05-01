@@ -1,0 +1,2 @@
+¿Qué se emprega para fusionar unha ou mais ramas dentro da rama que tes activa?,Merge,Branch,Fetch,Tag
+¿Con qué opción de GitHub podemos dar ou recibir recomendacións ou melloras do código?,Pull Requests,Issues,Fork,Projects
