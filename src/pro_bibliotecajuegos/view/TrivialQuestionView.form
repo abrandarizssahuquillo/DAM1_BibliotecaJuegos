@@ -147,7 +147,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Jugador"/>
+                <Property name="text" type="java.lang.String" value="Nombre Jugador"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -175,26 +175,41 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Pregunta 1"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bPregunta1ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="bPregunta2">
           <Properties>
             <Property name="text" type="java.lang.String" value="Pregunta 2"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bPregunta2ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="bPregunta3">
           <Properties>
             <Property name="text" type="java.lang.String" value="Pregunta 3"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bPregunta3ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="bPregunta4">
           <Properties>
             <Property name="text" type="java.lang.String" value="Pregunta 4"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bPregunta4ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="bSiguientePregunta">
           <Properties>
             <Property name="text" type="java.lang.String" value="Siguiente pregunta"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bSiguientePreguntaActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

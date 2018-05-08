@@ -30,6 +30,11 @@ public class TrivialQuestionView extends javax.swing.JFrame {
                     jProgressBar1.setValue(jProgressBar1.getValue() + 10);
                 } else {
                     t.stop();
+                    jtTextoPregunta.setText("O tempo terminou, preme 'Seguinte Pregunta' para continuar.");
+                    bPregunta1.setEnabled(false);
+                    bPregunta2.setEnabled(false);
+                    bPregunta3.setEnabled(false);
+                    bPregunta4.setEnabled(false);
                 }
             }
         };
@@ -80,7 +85,7 @@ public class TrivialQuestionView extends javax.swing.JFrame {
         jtScore.setText("Score: 0000");
 
         jtNombreJugador.setForeground(new java.awt.Color(255, 255, 255));
-        jtNombreJugador.setText("Jugador");
+        jtNombreJugador.setText("Nombre Jugador");
 
         javax.swing.GroupLayout panelScoreLayout = new javax.swing.GroupLayout(panelScore);
         panelScore.setLayout(panelScoreLayout);
@@ -114,14 +119,39 @@ public class TrivialQuestionView extends javax.swing.JFrame {
         jProgressBar1.setForeground(new java.awt.Color(0, 153, 0));
 
         bPregunta1.setText("Pregunta 1");
+        bPregunta1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bPregunta1ActionPerformed(evt);
+            }
+        });
 
         bPregunta2.setText("Pregunta 2");
+        bPregunta2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bPregunta2ActionPerformed(evt);
+            }
+        });
 
         bPregunta3.setText("Pregunta 3");
+        bPregunta3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bPregunta3ActionPerformed(evt);
+            }
+        });
 
         bPregunta4.setText("Pregunta 4");
+        bPregunta4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bPregunta4ActionPerformed(evt);
+            }
+        });
 
         bSiguientePregunta.setText("Siguiente pregunta");
+        bSiguientePregunta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bSiguientePreguntaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelBaseLayout = new javax.swing.GroupLayout(panelBase);
         panelBase.setLayout(panelBaseLayout);
@@ -178,6 +208,26 @@ public class TrivialQuestionView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bPregunta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPregunta1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bPregunta1ActionPerformed
+
+    private void bPregunta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPregunta2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bPregunta2ActionPerformed
+
+    private void bPregunta3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPregunta3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bPregunta3ActionPerformed
+
+    private void bPregunta4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPregunta4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bPregunta4ActionPerformed
+
+    private void bSiguientePreguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSiguientePreguntaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bSiguientePreguntaActionPerformed
 
     /**
      * @param args the command line arguments
