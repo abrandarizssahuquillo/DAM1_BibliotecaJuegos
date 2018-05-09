@@ -92,6 +92,11 @@ public class TrivialLobbyView extends javax.swing.JFrame {
 
         jtPro.setEditable(false);
         jtPro.setBackground(new java.awt.Color(255, 255, 255));
+        jtPro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtProActionPerformed(evt);
+            }
+        });
 
         jtBds.setEditable(false);
         jtBds.setBackground(new java.awt.Color(255, 255, 255));
@@ -363,6 +368,10 @@ public class TrivialLobbyView extends javax.swing.JFrame {
     private void bFolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bFolActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_bFolActionPerformed
+
+    private void jtProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtProActionPerformed
+        // Si questido (true) da color
+    }//GEN-LAST:event_jtProActionPerformed
 
     /**
      * @param args the command line arguments
