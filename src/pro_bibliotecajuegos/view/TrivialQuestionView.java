@@ -7,7 +7,10 @@ package pro_bibliotecajuegos.view;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JTextField;
 import javax.swing.Timer;
+import pro_bibliotecajuegos.controller.TrivialController;
 
 /**
  *
@@ -15,9 +18,11 @@ import javax.swing.Timer;
  */
 public class TrivialQuestionView extends javax.swing.JFrame {
 
+    TrivialController control = new TrivialController();
+
     private Timer t;
     private ActionListener al;
-    
+
     /**
      * Creates new form TrivialQuestionView
      */
@@ -31,10 +36,7 @@ public class TrivialQuestionView extends javax.swing.JFrame {
                 } else {
                     t.stop();
                     jtTextoPregunta.setText("O tempo terminou, preme 'Seguinte Pregunta' para continuar.");
-                    bPregunta1.setEnabled(false);
-                    bPregunta2.setEnabled(false);
-                    bPregunta3.setEnabled(false);
-                    bPregunta4.setEnabled(false);
+                    control.bloquearBotones(bPregunta1, bPregunta2, bPregunta3, bPregunta4);
                 }
             }
         };
@@ -210,51 +212,33 @@ public class TrivialQuestionView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bPregunta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPregunta1ActionPerformed
-        // TODO add your handling code here:
+        control.bloquearBotones(bPregunta1, bPregunta2, bPregunta3, bPregunta4);
+        t.stop();
     }//GEN-LAST:event_bPregunta1ActionPerformed
 
     private void bPregunta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPregunta2ActionPerformed
-        // TODO add your handling code here:
+        control.bloquearBotones(bPregunta1, bPregunta2, bPregunta3, bPregunta4);
+        t.stop();
     }//GEN-LAST:event_bPregunta2ActionPerformed
 
     private void bPregunta3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPregunta3ActionPerformed
-        // TODO add your handling code here:
+        control.bloquearBotones(bPregunta1, bPregunta2, bPregunta3, bPregunta4);
+        t.stop();
     }//GEN-LAST:event_bPregunta3ActionPerformed
 
     private void bPregunta4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPregunta4ActionPerformed
-        // TODO add your handling code here:
+        control.bloquearBotones(bPregunta1, bPregunta2, bPregunta3, bPregunta4);
+        t.stop();
     }//GEN-LAST:event_bPregunta4ActionPerformed
 
     private void bSiguientePreguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSiguientePreguntaActionPerformed
-        // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_bSiguientePreguntaActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TrivialQuestionView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TrivialQuestionView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TrivialQuestionView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TrivialQuestionView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -263,6 +247,47 @@ public class TrivialQuestionView extends javax.swing.JFrame {
             }
         });
     }
+
+    public void setbPregunta1(JButton bPregunta1) {
+        this.bPregunta1 = bPregunta1;
+    }
+
+    public void setbPregunta2(JButton bPregunta2) {
+        this.bPregunta2 = bPregunta2;
+    }
+
+    public void setbPregunta3(JButton bPregunta3) {
+        this.bPregunta3 = bPregunta3;
+    }
+
+    public void setbPregunta4(JButton bPregunta4) {
+        this.bPregunta4 = bPregunta4;
+    }
+
+    public void setJtTextoPregunta(JTextField jtTextoPregunta) {
+        this.jtTextoPregunta = jtTextoPregunta;
+    }
+
+    public JButton getbPregunta1() {
+        return bPregunta1;
+    }
+
+    public JButton getbPregunta2() {
+        return bPregunta2;
+    }
+
+    public JButton getbPregunta3() {
+        return bPregunta3;
+    }
+
+    public JButton getbPregunta4() {
+        return bPregunta4;
+    }
+
+    public JTextField getJtTextoPregunta() {
+        return jtTextoPregunta;
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bPregunta1;

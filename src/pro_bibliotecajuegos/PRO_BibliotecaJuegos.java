@@ -5,8 +5,8 @@
  */
 package pro_bibliotecajuegos;
 
-import pro_bibliotecajuegos.controller.TrivialTurnController;
-import pro_bibliotecajuegos.view.TrivialQuestionView;
+import java.io.File;
+import pro_bibliotecajuegos.controller.TrivialController;
 
 /**
  *
@@ -18,8 +18,10 @@ public class PRO_BibliotecaJuegos {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        TrivialQuestionView trvw = new TrivialQuestionView();
-        trvw.setVisible(true);
+        TrivialController prueba = new TrivialController();
+        String listaPro = "FicheroPreguntasPRO.txt";
+        File fichero = new File(listaPro);
+        prueba.leerPregunta2(fichero);
     }
     
 }
