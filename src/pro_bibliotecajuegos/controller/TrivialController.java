@@ -1,5 +1,7 @@
 package pro_bibliotecajuegos.controller;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -11,6 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import pro_bibliotecajuegos.model.TrivialQuestionModel;
 import pro_bibliotecajuegos.view.TrivialQuestionView;
 
@@ -19,9 +22,9 @@ import pro_bibliotecajuegos.view.TrivialQuestionView;
  * @author Hansen
  */
 public class TrivialController {
-    
+
     private boolean acierto;
-    
+
     TrivialQuestionView questionView;
     PrintWriter pw;
     String listaPro = "FicheroPreguntasPRO.txt";
@@ -37,6 +40,7 @@ public class TrivialController {
     int bucle;
     String[] lista;
     File fichero;
+    String res1;
 
     public boolean isAcierto() {
         return acierto;
@@ -44,6 +48,10 @@ public class TrivialController {
 
     public void setAcierto(boolean acierto) {
         this.acierto = acierto;
+    }
+
+    public String getRes1() {
+        return res1;
     }
 
     /**
@@ -248,110 +256,8 @@ public class TrivialController {
     }
 
     /**
-     * Método "leerPregunta" en el que, se pide un fichero y no devuelve nada,
-     * se lee el contenido del fichero y se añade a un arrayList - Se escoge una
-     * pregunta de forma aleatoria y se desordenan sus respuestas.
-     *
-     * @param fichero que pide el método para leer el contenido que hay en él.
-     */
-    public void leerPregunta(File fichero) {
-        try {
-            sc = new Scanner(fichero);
-            pregunta = new ArrayList();
-            /*
-             * Bucle while que mientras, en el fichero, haya más líneas que leer
-             * las incorpora a un Array de tipo String, separando los componentes
-             * por un delimitador que se ha asignado previamente. A continuación
-             * se añade al ArrayList pregunta.
-             */
-            while (sc.hasNextLine()) {
-                linea = sc.nextLine();
-                lista = new String[5];
-                lista = linea.split(delim);
-                TrivialQuestionModel p = new TrivialQuestionModel(lista[0], lista[1], lista[2], lista[3], lista[4]);
-                pregunta.add(p);
-            }
-            // Se crean y se inicializan las variables a utilizar en la pregunta.
-            int finalRes = 4;
-            int principioRes = 1;
-            int pre = 0;
-            Random num = new Random(System.nanoTime());
-            int numRespuesta1;
-            int numRespuesta2;
-            int numRespuesta3;
-            int numRespuesta4;
-            /*
-             * Se crea otro número aleatorio que seleccionará de forma aleatoria 
-             * una pregunta de las almacenadas en el fichero.
-             */
-            int numPregunta = num.nextInt((pregunta.size() - 1) - pre + 1) + pre;
-            // Crea un número aleatorio entre 1 y 4 y se almacena en la variable
-            numRespuesta1 = num.nextInt(finalRes - principioRes + 1) + principioRes;
-            /*
-             * Bucle do while que se emplea en cada una de las respuestas
-             * siguientes que generará otro número aleatorio para esa respuesta
-             * y seguirá generándolo hasta que no coincida.
-             */
-            do {
-                numRespuesta2 = num.nextInt(finalRes - principioRes + 1) + principioRes;
-            } while (numRespuesta1 == numRespuesta2);
-            do {
-                numRespuesta3 = num.nextInt(finalRes - principioRes + 1) + principioRes;
-            } while (numRespuesta1 == numRespuesta3 || numRespuesta2 == numRespuesta3);
-            do {
-                numRespuesta4 = num.nextInt(finalRes - principioRes + 1) + principioRes;
-            } while (numRespuesta1 == numRespuesta4 || numRespuesta2 == numRespuesta4 || numRespuesta3 == numRespuesta4);
-            // Se crea una variable auxilar para imprimir las respuestas:
-            String[] auxiliar = new String[4];
-            String numero1 = Integer.toString(numRespuesta1);
-            String res1 = pregunta.get(numPregunta).getRes1();
-            auxiliar[0] = numero1 + ") " + res1;
-            String numero2 = Integer.toString(numRespuesta2);
-            String res2 = pregunta.get(numPregunta).getRes2();
-            auxiliar[1] = numero2 + ") " + res2;
-            String numero3 = Integer.toString(numRespuesta3);
-            String res3 = pregunta.get(numPregunta).getRes3();
-            auxiliar[2] = numero3 + ") " + res3;
-            String numero4 = Integer.toString(numRespuesta4);
-            String res4 = pregunta.get(numPregunta).getRes4();
-            auxiliar[3] = numero4 + ") " + res4;
-            // Se ordena el array:
-            for (int i = 0; i < (auxiliar.length - 1); i++) {
-                for (int j = i + 1; j < auxiliar.length; j++) {
-                    if (auxiliar[i].compareToIgnoreCase(auxiliar[j]) > 0) {
-                        // Se intercambian los valores:
-                        String variableauxiliar = auxiliar[i];
-                        auxiliar[i] = auxiliar[j];
-                        auxiliar[j] = variableauxiliar;
-                    }
-                }
-            }
-            int opcion = Integer.parseInt(JOptionPane.showInputDialog(
-                    "Pregunta:\n" + pregunta.get(numPregunta).getPregunta()
-                    + "\n" + auxiliar[0]
-                    + "\n" + auxiliar[1]
-                    + "\n" + auxiliar[2]
-                    + "\n" + auxiliar[3]));
-            acierto = false;
-            // Estructura condicional if/else en la que se indica si se acierta la pregunta.           
-            if (opcion == numRespuesta1) {
-                JOptionPane.showMessageDialog(null, "Acertaches, volves a tirar!");
-                acierto = true;
-                
-            } else {
-                JOptionPane.showMessageDialog(null, "Fallaches, sorte na próxima!");
-                acierto = false;
-            }
-        } catch (IOException ex) {
-            Logger.getLogger(TrivialQuestionModel.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            sc.close();
-        }
-    }
-    
-    /**
-     * Método "Visualizar" en el que, se pide un fichero y no devuelve nada,
-     * se lee el contenido del fichero y se muestran todas las preguntas que
+     * Método "Visualizar" en el que, se pide un fichero y no devuelve nada, se
+     * lee el contenido del fichero y se muestran todas las preguntas que
      * contenga.
      *
      * @param fichero que pide el método para leer el contenido que hay en él.
@@ -383,7 +289,7 @@ public class TrivialController {
             sc.close();
         }
     }
-    
+
     /**
      * Método "leerPregunta" en el que, se pide un fichero y no devuelve nada,
      * se lee el contenido del fichero y se añade a un arrayList - Se escoge una
@@ -391,7 +297,7 @@ public class TrivialController {
      *
      * @param fichero que pide el método para leer el contenido que hay en él.
      */
-    public void leerPregunta2(File fichero) {
+    public void leerPregunta(File fichero) {
         try {
             questionView = new TrivialQuestionView();
             questionView.setVisible(true);
@@ -443,7 +349,7 @@ public class TrivialController {
             // Se crea una variable auxilar para imprimir las respuestas:
             String[] auxiliar = new String[4];
             String numero1 = Integer.toString(numRespuesta1);
-            String res1 = pregunta.get(numPregunta).getRes1();
+            res1 = pregunta.get(numPregunta).getRes1();
             auxiliar[0] = numero1 + ") " + res1;
             String numero2 = Integer.toString(numRespuesta2);
             String res2 = pregunta.get(numPregunta).getRes2();
@@ -470,18 +376,75 @@ public class TrivialController {
             questionView.getbPregunta2().setText(auxiliar[1]);
             questionView.getbPregunta3().setText(auxiliar[2]);
             questionView.getbPregunta4().setText(auxiliar[3]);
+            res1 = numero1 + ") " + res1;
+            questionView.getbPregunta1().addActionListener((ActionEvent ae) -> {
+                if (ae.getSource().equals(questionView.getbPregunta1())) {
+                    acierto = false;
+                    if (questionView.getbPregunta1().getText().equalsIgnoreCase(res1)) {
+                        questionView.getJtTextoPregunta().setText("Acertaches a pregunta");
+                    } else {
+                        questionView.getJtTextoPregunta().setText("Fallaches a pregunta!");
+                        acierto = false;
+                    }
+                }
+            });
+            questionView.getbPregunta2().addActionListener((ActionEvent ae) -> {
+                if (ae.getSource().equals(questionView.getbPregunta2())) {
+                    acierto = false;
+                    if (questionView.getbPregunta2().getText().equalsIgnoreCase(res1)) {
+                        questionView.getJtTextoPregunta().setText("Acertaches a pregunta");
+                    } else {
+                        questionView.getJtTextoPregunta().setText("Fallaches a pregunta!");
+                        acierto = false;
+                    }
+                }
+            });
+            questionView.getbPregunta3().addActionListener((ActionEvent ae) -> {
+                if (ae.getSource().equals(questionView.getbPregunta3())) {
+                    acierto = false;
+                    if (questionView.getbPregunta3().getText().equalsIgnoreCase(res1)) {
+                        questionView.getJtTextoPregunta().setText("Acertaches a pregunta");
+                    } else {
+                        questionView.getJtTextoPregunta().setText("Fallaches a pregunta!");
+                        acierto = false;
+                    }
+                }
+            });
+            questionView.getbPregunta4().addActionListener((ActionEvent ae) -> {
+                if (ae.getSource().equals(questionView.getbPregunta4())) {
+                    acierto = false;
+                    if (questionView.getbPregunta4().getText().equalsIgnoreCase(res1)) {
+                        questionView.getJtTextoPregunta().setText("Acertaches a pregunta");
+                    } else {
+                        questionView.getJtTextoPregunta().setText("Fallaches a pregunta!");
+                        acierto = false;
+                    }
+                }
+            });
         } catch (IOException ex) {
             Logger.getLogger(TrivialQuestionModel.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             sc.close();
         }
     }
-    
+
     public void bloquearBotones(JButton boton1, JButton boton2, JButton boton3, JButton boton4) {
         boton1.setEnabled(false);
         boton2.setEnabled(false);
         boton3.setEnabled(false);
         boton4.setEnabled(false);
-        
+
+    }
+
+    public void analizarPregunta(String textoPregunta, JButton boton, JTextField pantalla) {
+        acierto = false;
+        // Estructura condicional if/else en la que se indica si se acierta la pregunta.           
+        if (boton.getText().equalsIgnoreCase(textoPregunta)) {
+            pantalla.setText("Acertaches a pregunta!");
+            acierto = true;
+        } else {
+            pantalla.setText("Fallaches a pregunta!");
+            acierto = false;
+        }
     }
 }

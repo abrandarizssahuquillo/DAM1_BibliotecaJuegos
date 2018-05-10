@@ -5,8 +5,7 @@
  */
 package pro_bibliotecajuegos;
 
-import java.io.File;
-import pro_bibliotecajuegos.controller.TrivialController;
+import pro_bibliotecajuegos.view.TrivialLobbyView;
 
 /**
  *
@@ -18,10 +17,9 @@ public class PRO_BibliotecaJuegos {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        TrivialController prueba = new TrivialController();
-        String listaPro = "FicheroPreguntasPRO.txt";
-        File fichero = new File(listaPro);
-        prueba.leerPregunta2(fichero);
+        TrivialLobbyView lobby = new TrivialLobbyView();
+        lobby.setVisible(true);
+        
     }
     
 }

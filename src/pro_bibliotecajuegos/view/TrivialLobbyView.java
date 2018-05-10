@@ -5,12 +5,25 @@
  */
 package pro_bibliotecajuegos.view;
 
+import java.io.File;
+import pro_bibliotecajuegos.controller.TrivialController;
+
 /**
  *
  * @author Hansen
  */
 public class TrivialLobbyView extends javax.swing.JFrame {
 
+    
+    TrivialController control = new TrivialController();
+    String listaPro = "FicheroPreguntasPRO.txt";
+    String listaSis = "FicheroPreguntasSI.txt";
+    String listaBds = "FicheroPreguntasBD.txt";
+    String listaLmsxi = "FicheroPreguntasLMSXI.txt";
+    String listaFol = "FicheroPreguntasFOL.txt";
+    String listaCod = "FicheroPreguntasCOD.txt";
+    File fichero;
+    
     /**
      * Creates new form TrivialLobbyView
      */
@@ -346,27 +359,33 @@ public class TrivialLobbyView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bSisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSisActionPerformed
-        // TODO add your handling code here:
+        fichero = new File(listaSis);
+        control.leerPregunta(fichero);
     }//GEN-LAST:event_bSisActionPerformed
 
     private void bProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bProActionPerformed
-        // TODO add your handling code here:
+        fichero = new File(listaPro);
+        control.leerPregunta(fichero);
     }//GEN-LAST:event_bProActionPerformed
 
     private void bCodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCodActionPerformed
-        // TODO add your handling code here:
+        fichero = new File(listaCod);
+        control.leerPregunta(fichero);
     }//GEN-LAST:event_bCodActionPerformed
 
     private void bBdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBdActionPerformed
-        // TODO add your handling code here:
+        fichero = new File(listaBds);
+        control.leerPregunta(fichero);
     }//GEN-LAST:event_bBdActionPerformed
 
     private void bLmsxiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLmsxiActionPerformed
-        // TODO add your handling code here:
+        fichero = new File(listaLmsxi);
+        control.leerPregunta(fichero);
     }//GEN-LAST:event_bLmsxiActionPerformed
 
     private void bFolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bFolActionPerformed
-        // TODO add your handling code here:
+        fichero = new File(listaFol);
+        control.leerPregunta(fichero);
     }//GEN-LAST:event_bFolActionPerformed
 
     private void jtProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtProActionPerformed
@@ -407,7 +426,7 @@ public class TrivialLobbyView extends javax.swing.JFrame {
             }
         });
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bBd;
     private javax.swing.JButton bCod;
