@@ -301,9 +301,13 @@ public class TrivialController {
     public void leerPregunta(File fichero, TrivialPlayerModel player1, TrivialPlayerModel player2) {
         try {
             questionView = new TrivialQuestionView();
+            // Se comprueba que jugador está activo en ese momento:
             if (player1.isActivo() == true) {
                 questionView.getJtScore().setText(String.valueOf(player1.getPuntuacion()));
                 questionView.getJtNombreJugador().setText(player1.getNombre());
+            } else {
+                questionView.getJtScore().setText(String.valueOf(player2.getPuntuacion()));
+                questionView.getJtNombreJugador().setText(player2.getNombre());
             }
             questionView.setVisible(true);
             sc = new Scanner(fichero);
@@ -390,10 +394,20 @@ public class TrivialController {
                         if (player1.isActivo() == true) {
                             player1.setPuntuacion(player1.getPuntuacion() + 20);
                             questionView.getJtScore().setText(String.valueOf(player1.getPuntuacion()));
+                        } else {
+                            player2.setPuntuacion(player2.getPuntuacion() + 20);
+                            questionView.getJtScore().setText(String.valueOf(player2.getPuntuacion()));
                         }
                     } else {
                         questionView.getJtTextoPregunta().setText("Fallaches a pregunta!");
                         acierto = false;
+                        if (player1.isActivo() == true) {
+                            player1.setActivo(false);
+                            player2.setActivo(true);
+                        } else {
+                            player1.setActivo(true);
+                            player2.setActivo(false);
+                        }
                     }
                 }
             });
@@ -405,10 +419,20 @@ public class TrivialController {
                         if (player1.isActivo() == true) {
                             player1.setPuntuacion(player1.getPuntuacion() + 20);
                             questionView.getJtScore().setText(String.valueOf(player1.getPuntuacion()));
+                        } else {
+                            player2.setPuntuacion(player2.getPuntuacion() + 20);
+                            questionView.getJtScore().setText(String.valueOf(player2.getPuntuacion()));
                         }
                     } else {
                         questionView.getJtTextoPregunta().setText("Fallaches a pregunta!");
                         acierto = false;
+                        if (player1.isActivo() == true) {
+                            player1.setActivo(false);
+                            player2.setActivo(true);
+                        } else {
+                            player1.setActivo(true);
+                            player2.setActivo(false);
+                        }
                     }
                 }
             });
@@ -420,10 +444,20 @@ public class TrivialController {
                         if (player1.isActivo() == true) {
                             player1.setPuntuacion(player1.getPuntuacion() + 20);
                             questionView.getJtScore().setText(String.valueOf(player1.getPuntuacion()));
+                        } else {
+                            player2.setPuntuacion(player2.getPuntuacion() + 20);
+                            questionView.getJtScore().setText(String.valueOf(player2.getPuntuacion()));
                         }
                     } else {
                         questionView.getJtTextoPregunta().setText("Fallaches a pregunta!");
                         acierto = false;
+                        if (player1.isActivo() == true) {
+                            player1.setActivo(false);
+                            player2.setActivo(true);
+                        } else {
+                            player1.setActivo(true);
+                            player2.setActivo(false);
+                        }
                     }
                 }
             });
@@ -435,10 +469,20 @@ public class TrivialController {
                         if (player1.isActivo() == true) {
                             player1.setPuntuacion(player1.getPuntuacion() + 20);
                             questionView.getJtScore().setText(String.valueOf(player1.getPuntuacion()));
+                        } else {
+                            player2.setPuntuacion(player2.getPuntuacion() + 20);
+                            questionView.getJtScore().setText(String.valueOf(player2.getPuntuacion()));
                         }
                     } else {
                         questionView.getJtTextoPregunta().setText("Fallaches a pregunta!");
                         acierto = false;
+                        if (player1.isActivo() == true) {
+                            player1.setActivo(false);
+                            player2.setActivo(true);
+                        } else {
+                            player1.setActivo(true);
+                            player2.setActivo(false);
+                        }
                     }
                 }
             });
