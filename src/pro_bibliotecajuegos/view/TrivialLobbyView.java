@@ -6,7 +6,9 @@
 package pro_bibliotecajuegos.view;
 
 import java.io.File;
+import javax.swing.JOptionPane;
 import pro_bibliotecajuegos.controller.TrivialController;
+import pro_bibliotecajuegos.model.TrivialPlayerModel;
 
 /**
  *
@@ -14,7 +16,10 @@ import pro_bibliotecajuegos.controller.TrivialController;
  */
 public class TrivialLobbyView extends javax.swing.JFrame {
 
-    
+    String nombre = JOptionPane.showInputDialog("Nombre del jugador 1:");
+    String nombre2 = JOptionPane.showInputDialog("Introduce el nombre del jugador 2:");
+    TrivialPlayerModel player1 = new TrivialPlayerModel(nombre, 0, true);
+    TrivialPlayerModel player2 = new TrivialPlayerModel(nombre2, 0, false);
     TrivialController control = new TrivialController();
     String listaPro = "FicheroPreguntasPRO.txt";
     String listaSis = "FicheroPreguntasSI.txt";
@@ -360,32 +365,32 @@ public class TrivialLobbyView extends javax.swing.JFrame {
 
     private void bSisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSisActionPerformed
         fichero = new File(listaSis);
-        control.leerPregunta(fichero);
+        control.leerPregunta(fichero, player1, player2);
     }//GEN-LAST:event_bSisActionPerformed
 
     private void bProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bProActionPerformed
         fichero = new File(listaPro);
-        control.leerPregunta(fichero);
+        control.leerPregunta(fichero, player1, player2);
     }//GEN-LAST:event_bProActionPerformed
 
     private void bCodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCodActionPerformed
         fichero = new File(listaCod);
-        control.leerPregunta(fichero);
+        control.leerPregunta(fichero, player1, player2);
     }//GEN-LAST:event_bCodActionPerformed
 
     private void bBdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBdActionPerformed
         fichero = new File(listaBds);
-        control.leerPregunta(fichero);
+        control.leerPregunta(fichero, player1, player2);
     }//GEN-LAST:event_bBdActionPerformed
 
     private void bLmsxiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLmsxiActionPerformed
         fichero = new File(listaLmsxi);
-        control.leerPregunta(fichero);
+        control.leerPregunta(fichero, player1, player2);
     }//GEN-LAST:event_bLmsxiActionPerformed
 
     private void bFolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bFolActionPerformed
         fichero = new File(listaFol);
-        control.leerPregunta(fichero);
+        control.leerPregunta(fichero, player1, player2);
     }//GEN-LAST:event_bFolActionPerformed
 
     private void jtProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtProActionPerformed
@@ -425,6 +430,8 @@ public class TrivialLobbyView extends javax.swing.JFrame {
                 new TrivialLobbyView().setVisible(true);
             }
         });
+        
+        // Cuando el jugador X esté activo se marcará poniendo el nombre en amarillo.
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

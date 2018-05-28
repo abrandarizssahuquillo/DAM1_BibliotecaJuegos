@@ -8,6 +8,8 @@ package pro_bibliotecajuegos.view;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JProgressBar;
 import javax.swing.JTextField;
 import javax.swing.Timer;
 import pro_bibliotecajuegos.controller.TrivialController;
@@ -50,6 +52,48 @@ public class TrivialQuestionView extends javax.swing.JFrame {
             t.stop();
         }
     }
+
+    public JButton getbSiguientePregunta() {
+        return bSiguientePregunta;
+    }
+
+    public void setbSiguientePregunta(JButton bSiguientePregunta) {
+        this.bSiguientePregunta = bSiguientePregunta;
+    }
+
+    public JProgressBar getjProgressBar1() {
+        return jProgressBar1;
+    }
+
+    public void setjProgressBar1(JProgressBar jProgressBar1) {
+        this.jProgressBar1 = jProgressBar1;
+    }
+
+    public JLabel getJtNombreJugador() {
+        return jtNombreJugador;
+    }
+
+    public void setJtNombreJugador(JLabel jtNombreJugador) {
+        this.jtNombreJugador = jtNombreJugador;
+    }
+
+    public JLabel getJtScore() {
+        return jtScore;
+    }
+
+    public void setJtScore(JLabel jtScore) {
+        this.jtScore = jtScore;
+    }
+
+    public JLabel getJtTipoPregunta() {
+        return jtTipoPregunta;
+    }
+
+    public void setJtTipoPregunta(JLabel jtTipoPregunta) {
+        this.jtTipoPregunta = jtTipoPregunta;
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

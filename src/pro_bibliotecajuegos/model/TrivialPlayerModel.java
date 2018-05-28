@@ -29,8 +29,10 @@ public class TrivialPlayerModel {
 
     }
 
-    public TrivialPlayerModel(String nombre) {
+    public TrivialPlayerModel(String nombre, int puntuacion, boolean activo) {
         this.nombre = nombre;
+        this.puntuacion = puntuacion;
+        this.activo = activo;
     }
 
     // SETS Y GETS:

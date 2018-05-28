@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import pro_bibliotecajuegos.model.TrivialPlayerModel;
 import pro_bibliotecajuegos.model.TrivialQuestionModel;
 import pro_bibliotecajuegos.view.TrivialQuestionView;
 
@@ -54,173 +55,171 @@ public class TrivialController {
         return res1;
     }
 
-    /**
-     * Método menuAñadir, que no pide nada y no devuelve nada, que ayuda a
-     * gestionar con un switch case la inserción de preguntas a ficheros.
-     */
-    public void menuPrincipal() {
-        int opcion = Integer.parseInt(JOptionPane.showInputDialog(
-                "**** MENU ****\n"
-                + "1) Engadir pregunta\n"
-                + "2) Leer pregunta\n"
-                + "3) Visualizar preguntas\n"
-                + "4) Exit"));
-        do {
-            switch (opcion) {
-                case 1:
-                    this.menuAñadir();
-                    break;
-                case 2:
-                    this.menuLeer();
-                    break;
-                case 3:
-                    this.menuVisualizar();
-                    break;
-                case 4:
-                    System.exit(0);
-                    break;
-            }
-        } while (opcion < 4);
-    }
-
-    /**
-     * Método menuAñadir, que no pide nada y no devuelve nada, que ayuda a
-     * gestionar con un switch case la inserción de preguntas a ficheros.
-     */
-    public void menuAñadir() {
-        int opcion = Integer.parseInt(JOptionPane.showInputDialog(
-                "**** MENU ****\n"
-                + "1) Engadir pregunta Programación\n"
-                + "2) Engadir pregunta Bases de Datos\n"
-                + "3) Engadir pregunta Sistemas Informáticos\n"
-                + "4) Engadir pregunta FOL\n"
-                + "5) Engadir pregunta LMSXI\n"
-                + "6) Engadir pregunta COD\n"
-                + "7) Menu principal"));
-        do {
-            switch (opcion) {
-                case 1:
-                    fichero = new File(listaPro);
-                    this.añadirPregunta(fichero);
-                    break;
-                case 2:
-                    fichero = new File(listaBds);
-                    this.añadirPregunta(fichero);
-                    break;
-                case 3:
-                    fichero = new File(listaSis);
-                    this.añadirPregunta(fichero);
-                    break;
-                case 4:
-                    fichero = new File(listaFol);
-                    this.añadirPregunta(fichero);
-                    break;
-                case 5:
-                    fichero = new File(listaLmsxi);
-                    this.añadirPregunta(fichero);
-                    break;
-                case 6:
-                    fichero = new File(listaCod);
-                    this.añadirPregunta(fichero);
-                    break;
-                case 7:
-                    this.menuPrincipal();
-            }
-        } while (opcion > 7);
-    }
-
-    /**
-     * Método menuLeer, que no pide nada y no devuelve nada, que ayuda a
-     * gestionar con un switch case la lectura de preguntas en los ficheros.
-     */
-    public void menuLeer() {
-        int opcion = Integer.parseInt(JOptionPane.showInputDialog(
-                "**** MENU ****\n"
-                + "1) Leer pregunta Programación\n"
-                + "2) Leer pregunta Bases de Datos\n"
-                + "3) Leer pregunta Sistemas Informáticos\n"
-                + "4) Leer pregunta FOL\n"
-                + "5) Leer pregunta LMSXI\n"
-                + "6) Leer pregunta COD\n"
-                + "7) Menu principal"));
-        do {
-            switch (opcion) {
-                case 1:
-                    fichero = new File(listaPro);
-                    this.leerPregunta(fichero);
-                    break;
-                case 2:
-                    fichero = new File(listaBds);
-                    this.leerPregunta(fichero);
-                    break;
-                case 3:
-                    fichero = new File(listaSis);
-                    this.leerPregunta(fichero);
-                    break;
-                case 4:
-                    fichero = new File(listaFol);
-                    this.leerPregunta(fichero);
-                    break;
-                case 5:
-                    fichero = new File(listaLmsxi);
-                    this.leerPregunta(fichero);
-                    break;
-                case 6:
-                    fichero = new File(listaCod);
-                    this.leerPregunta(fichero);
-                    break;
-                case 7:
-                    this.menuPrincipal();
-            }
-        } while (opcion > 7);
-    }
-
-    /**
-     * Método menuVisualizar, que no pide nada y no devuelve nada, que muestra
-     * con un switch case todas las preguntas de un tipo.
-     */
-    public void menuVisualizar() {
-        int opcion = Integer.parseInt(JOptionPane.showInputDialog(
-                "**** MENU ****\n"
-                + "1) Visualizar preguntas Programación\n"
-                + "2) Visualizar preguntas Bases de Datos\n"
-                + "3) Visualizar preguntas Sistemas Informáticos\n"
-                + "4) Visualizar preguntas FOL\n"
-                + "5) Visualizar preguntas LMSXI\n"
-                + "6) Visualizar preguntas COD\n"
-                + "7) Menu principal"));
-        do {
-            switch (opcion) {
-                case 1:
-                    fichero = new File(listaPro);
-                    this.visualizar(fichero);
-                    break;
-                case 2:
-                    fichero = new File(listaBds);
-                    this.visualizar(fichero);
-                    break;
-                case 3:
-                    fichero = new File(listaSis);
-                    this.visualizar(fichero);
-                    break;
-                case 4:
-                    fichero = new File(listaFol);
-                    this.visualizar(fichero);
-                    break;
-                case 5:
-                    fichero = new File(listaLmsxi);
-                    this.visualizar(fichero);
-                    break;
-                case 6:
-                    fichero = new File(listaCod);
-                    this.visualizar(fichero);
-                    break;
-                case 7:
-                    this.menuPrincipal();
-            }
-        } while (opcion > 7);
-    }
-
+//    /**
+//     * Método menuAñadir, que no pide nada y no devuelve nada, que ayuda a
+//     * gestionar con un switch case la inserción de preguntas a ficheros.
+//     */
+//    public void menuPrincipal() {
+//        int opcion = Integer.parseInt(JOptionPane.showInputDialog(
+//                "**** MENU ****\n"
+//                + "1) Engadir pregunta\n"
+//                + "2) Leer pregunta\n"
+//                + "3) Visualizar preguntas\n"
+//                + "4) Exit"));
+//        do {
+//            switch (opcion) {
+//                case 1:
+//                    this.menuAñadir();
+//                    break;
+//                case 2:
+//                    this.menuLeer();
+//                    break;
+//                case 3:
+//                    this.menuVisualizar();
+//                    break;
+//                case 4:
+//                    System.exit(0);
+//                    break;
+//            }
+//        } while (opcion < 4);
+//    }
+//
+//    /**
+//     * Método menuAñadir, que no pide nada y no devuelve nada, que ayuda a
+//     * gestionar con un switch case la inserción de preguntas a ficheros.
+//     */
+//    public void menuAñadir() {
+//        int opcion = Integer.parseInt(JOptionPane.showInputDialog(
+//                "**** MENU ****\n"
+//                + "1) Engadir pregunta Programación\n"
+//                + "2) Engadir pregunta Bases de Datos\n"
+//                + "3) Engadir pregunta Sistemas Informáticos\n"
+//                + "4) Engadir pregunta FOL\n"
+//                + "5) Engadir pregunta LMSXI\n"
+//                + "6) Engadir pregunta COD\n"
+//                + "7) Menu principal"));
+//        do {
+//            switch (opcion) {
+//                case 1:
+//                    fichero = new File(listaPro);
+//                    this.añadirPregunta(fichero);
+//                    break;
+//                case 2:
+//                    fichero = new File(listaBds);
+//                    this.añadirPregunta(fichero);
+//                    break;
+//                case 3:
+//                    fichero = new File(listaSis);
+//                    this.añadirPregunta(fichero);
+//                    break;
+//                case 4:
+//                    fichero = new File(listaFol);
+//                    this.añadirPregunta(fichero);
+//                    break;
+//                case 5:
+//                    fichero = new File(listaLmsxi);
+//                    this.añadirPregunta(fichero);
+//                    break;
+//                case 6:
+//                    fichero = new File(listaCod);
+//                    this.añadirPregunta(fichero);
+//                    break;
+//                case 7:
+//                    this.menuPrincipal();
+//            }
+//        } while (opcion > 7);
+//    }
+//
+//    /**
+//     * Método menuLeer, que no pide nada y no devuelve nada, que ayuda a
+//     * gestionar con un switch case la lectura de preguntas en los ficheros.
+//     */
+//    public void menuLeer() {
+//        int opcion = Integer.parseInt(JOptionPane.showInputDialog(
+//                "**** MENU ****\n"
+//                + "1) Leer pregunta Programación\n"
+//                + "2) Leer pregunta Bases de Datos\n"
+//                + "3) Leer pregunta Sistemas Informáticos\n"
+//                + "4) Leer pregunta FOL\n"
+//                + "5) Leer pregunta LMSXI\n"
+//                + "6) Leer pregunta COD\n"
+//                + "7) Menu principal"));
+//        do {
+//            switch (opcion) {
+//                case 1:
+//                    fichero = new File(listaPro);
+//                    this.leerPregunta(fichero);
+//                    break;
+//                case 2:
+//                    fichero = new File(listaBds);
+//                    this.leerPregunta(fichero);
+//                    break;
+//                case 3:
+//                    fichero = new File(listaSis);
+//                    this.leerPregunta(fichero);
+//                    break;
+//                case 4:
+//                    fichero = new File(listaFol);
+//                    this.leerPregunta(fichero);
+//                    break;
+//                case 5:
+//                    fichero = new File(listaLmsxi);
+//                    this.leerPregunta(fichero);
+//                    break;
+//                case 6:
+//                    fichero = new File(listaCod);
+//                    this.leerPregunta(fichero);
+//                    break;
+//                case 7:
+//                    this.menuPrincipal();
+//            }
+//        } while (opcion > 7);
+//    }
+//    /**
+//     * Método menuVisualizar, que no pide nada y no devuelve nada, que muestra
+//     * con un switch case todas las preguntas de un tipo.
+//     */
+//    public void menuVisualizar() {
+//        int opcion = Integer.parseInt(JOptionPane.showInputDialog(
+//                "**** MENU ****\n"
+//                + "1) Visualizar preguntas Programación\n"
+//                + "2) Visualizar preguntas Bases de Datos\n"
+//                + "3) Visualizar preguntas Sistemas Informáticos\n"
+//                + "4) Visualizar preguntas FOL\n"
+//                + "5) Visualizar preguntas LMSXI\n"
+//                + "6) Visualizar preguntas COD\n"
+//                + "7) Menu principal"));
+//        do {
+//            switch (opcion) {
+//                case 1:
+//                    fichero = new File(listaPro);
+//                    this.visualizar(fichero);
+//                    break;
+//                case 2:
+//                    fichero = new File(listaBds);
+//                    this.visualizar(fichero);
+//                    break;
+//                case 3:
+//                    fichero = new File(listaSis);
+//                    this.visualizar(fichero);
+//                    break;
+//                case 4:
+//                    fichero = new File(listaFol);
+//                    this.visualizar(fichero);
+//                    break;
+//                case 5:
+//                    fichero = new File(listaLmsxi);
+//                    this.visualizar(fichero);
+//                    break;
+//                case 6:
+//                    fichero = new File(listaCod);
+//                    this.visualizar(fichero);
+//                    break;
+//                case 7:
+//                    this.menuPrincipal();
+//            }
+//        } while (opcion > 7);
+//    }
     /**
      * Método "añadirPregunta" en el cual a través de un bucle do while en el
      * que se pide la pregunta y cuatro respuestas; Tras ésto se crea un nuevo
@@ -296,10 +295,16 @@ public class TrivialController {
      * pregunta de forma aleatoria y se desordenan sus respuestas.
      *
      * @param fichero que pide el método para leer el contenido que hay en él.
+     * @param player1
+     * @param player2
      */
-    public void leerPregunta(File fichero) {
+    public void leerPregunta(File fichero, TrivialPlayerModel player1, TrivialPlayerModel player2) {
         try {
             questionView = new TrivialQuestionView();
+            if (player1.isActivo() == true) {
+                questionView.getJtScore().setText(String.valueOf(player1.getPuntuacion()));
+                questionView.getJtNombreJugador().setText(player1.getNombre());
+            }
             questionView.setVisible(true);
             sc = new Scanner(fichero);
             pregunta = new ArrayList();
@@ -382,6 +387,10 @@ public class TrivialController {
                     acierto = false;
                     if (questionView.getbPregunta1().getText().equalsIgnoreCase(res1)) {
                         questionView.getJtTextoPregunta().setText("Acertaches a pregunta");
+                        if (player1.isActivo() == true) {
+                            player1.setPuntuacion(player1.getPuntuacion() + 20);
+                            questionView.getJtScore().setText(String.valueOf(player1.getPuntuacion()));
+                        }
                     } else {
                         questionView.getJtTextoPregunta().setText("Fallaches a pregunta!");
                         acierto = false;
@@ -393,6 +402,10 @@ public class TrivialController {
                     acierto = false;
                     if (questionView.getbPregunta2().getText().equalsIgnoreCase(res1)) {
                         questionView.getJtTextoPregunta().setText("Acertaches a pregunta");
+                        if (player1.isActivo() == true) {
+                            player1.setPuntuacion(player1.getPuntuacion() + 20);
+                            questionView.getJtScore().setText(String.valueOf(player1.getPuntuacion()));
+                        }
                     } else {
                         questionView.getJtTextoPregunta().setText("Fallaches a pregunta!");
                         acierto = false;
@@ -404,6 +417,10 @@ public class TrivialController {
                     acierto = false;
                     if (questionView.getbPregunta3().getText().equalsIgnoreCase(res1)) {
                         questionView.getJtTextoPregunta().setText("Acertaches a pregunta");
+                        if (player1.isActivo() == true) {
+                            player1.setPuntuacion(player1.getPuntuacion() + 20);
+                            questionView.getJtScore().setText(String.valueOf(player1.getPuntuacion()));
+                        }
                     } else {
                         questionView.getJtTextoPregunta().setText("Fallaches a pregunta!");
                         acierto = false;
@@ -415,6 +432,10 @@ public class TrivialController {
                     acierto = false;
                     if (questionView.getbPregunta4().getText().equalsIgnoreCase(res1)) {
                         questionView.getJtTextoPregunta().setText("Acertaches a pregunta");
+                        if (player1.isActivo() == true) {
+                            player1.setPuntuacion(player1.getPuntuacion() + 20);
+                            questionView.getJtScore().setText(String.valueOf(player1.getPuntuacion()));
+                        }
                     } else {
                         questionView.getJtTextoPregunta().setText("Fallaches a pregunta!");
                         acierto = false;
@@ -434,6 +455,16 @@ public class TrivialController {
         boton3.setEnabled(false);
         boton4.setEnabled(false);
 
+    }
+
+    public void comprobarActivo(TrivialPlayerModel player1, TrivialPlayerModel player2) {
+        if (player1.isActivo() == true) {
+            player1.setActivo(false);
+            player2.setActivo(true);
+        } else {
+            player2.setActivo(false);
+            player1.setActivo(true);
+        }
     }
 
     public void analizarPregunta(String textoPregunta, JButton boton, JTextField pantalla) {
