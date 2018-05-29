@@ -1,9 +1,10 @@
 package pro_bibliotecajuegos.controller;
 
+import java.applet.AudioClip;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,6 +13,7 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.sound.sampled.AudioSystem;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -28,6 +30,7 @@ public class TrivialController {
 
     boolean acierto;
 
+    AudioClip sonido;
     TrivialQuestionView questionView;
     PrintWriter pw;
     String listaPro = "FicheroPreguntasPRO.txt";
@@ -398,6 +401,8 @@ public class TrivialController {
                     // Si coincide suma 20 puntos a su Score y sigue tirando:
                     if (questionView.getbPregunta1().getText().equalsIgnoreCase(res1)) {
                         acierto = true;
+                        sonido = java.applet.Applet.newAudioClip(getClass().getResource("/mediaSound/smw_coin.wav"));
+                        sonido.play();
                         this.darQuesito(st, player1, player2);
                         questionView.getJtTextoPregunta().setText("Acertaches a pregunta");
                         /*
@@ -413,6 +418,8 @@ public class TrivialController {
                         }
                     } else {
                         // Si falla se cambian los estados de activo entre los jugadores.
+                        sonido = java.applet.Applet.newAudioClip(getClass().getResource("/mediaSound/smw_lost_a_life.wav"));
+                        sonido.play();
                         questionView.getJtTextoPregunta().setText("Fallaches a pregunta!");
                         if (player1.isActivo() == true) {
                             player1.setActivo(false);
@@ -431,6 +438,8 @@ public class TrivialController {
                     // Si coincide suma 20 puntos a su Score y sigue tirando:
                     if (questionView.getbPregunta2().getText().equalsIgnoreCase(res1)) {
                         acierto = true;
+                        sonido = java.applet.Applet.newAudioClip(getClass().getResource("/mediaSound/smw_coin.wav"));
+                        sonido.play();
                         this.darQuesito(st, player1, player2);
                         questionView.getJtTextoPregunta().setText("Acertaches a pregunta");
                         /*
@@ -446,6 +455,8 @@ public class TrivialController {
                         }
                     } else {
                         // Si falla se cambian los estados de activo entre los jugadores.
+                        sonido = java.applet.Applet.newAudioClip(getClass().getResource("/mediaSound/smw_lost_a_life.wav"));
+                        sonido.play();
                         questionView.getJtTextoPregunta().setText("Fallaches a pregunta!");
                         if (player1.isActivo() == true) {
                             player1.setActivo(false);
@@ -464,6 +475,8 @@ public class TrivialController {
                     // Si coincide suma 20 puntos a su Score y sigue tirando:
                     if (questionView.getbPregunta3().getText().equalsIgnoreCase(res1)) {
                         acierto = true;
+                        sonido = java.applet.Applet.newAudioClip(getClass().getResource("/mediaSound/smw_coin.wav"));
+                        sonido.play();
                         this.darQuesito(st, player1, player2);
                         questionView.getJtTextoPregunta().setText("Acertaches a pregunta");
                         /*
@@ -479,6 +492,8 @@ public class TrivialController {
                         }
                     } else {
                         // Si falla se cambian los estados de activo entre los jugadores.
+                        sonido = java.applet.Applet.newAudioClip(getClass().getResource("/mediaSound/smw_lost_a_life.wav"));
+                        sonido.play();
                         questionView.getJtTextoPregunta().setText("Fallaches a pregunta!");
                         if (player1.isActivo() == true) {
                             player1.setActivo(false);
@@ -497,6 +512,8 @@ public class TrivialController {
                     // Si coincide suma 20 puntos a su Score y sigue tirando:
                     if (questionView.getbPregunta4().getText().equalsIgnoreCase(res1)) {
                         acierto = true;
+                        sonido = java.applet.Applet.newAudioClip(getClass().getResource("/mediaSound/smw_coin.wav"));
+                        sonido.play();
                         this.darQuesito(st, player1, player2);
                         questionView.getJtTextoPregunta().setText("Acertaches a pregunta");
                         /*
@@ -512,6 +529,8 @@ public class TrivialController {
                             questionView.getJtScore().setText(String.valueOf(player2.getPuntuacion()));
                         }
                     } else {
+                        sonido = java.applet.Applet.newAudioClip(getClass().getResource("/mediaSound/smw_lost_a_life.wav"));
+                        sonido.play();
                         questionView.getJtTextoPregunta().setText("Fallaches a pregunta!");
                         if (player1.isActivo() == true) {
                             player1.setActivo(false);
@@ -669,18 +688,22 @@ public class TrivialController {
             boton6.setEnabled(false);
         }
     }
-    
+
     public void comprobarGanador(TrivialPlayerModel player1, TrivialPlayerModel player2, JButton botonOk, JButton boton1, JButton boton2, JButton boton3, JButton boton4, JButton boton5, JButton boton6) {
-        if (player1.isQuesitoBds() == true && player1.isQuesitoCod() == true 
-                && player1.isQuesitoFol() == true && player1.isQuesitoLms() == true 
+        if (player1.isQuesitoBds() == true && player1.isQuesitoCod() == true
+                && player1.isQuesitoFol() == true && player1.isQuesitoLms() == true
                 && player1.isQuesitoPro() == true && player1.isQuesitoSis() == true) {
+            sonido = java.applet.Applet.newAudioClip(getClass().getResource("/mediaSound/smw_course_clear.wav"));
+            sonido.play();
             JOptionPane.showMessageDialog(null, player1.getNombre() + " gaña.");
             this.toggleButtons(botonOk, boton1, boton2, boton3, boton4, boton5, boton6);
             botonOk.setEnabled(false);
         }
-        if (player2.isQuesitoBds() == true && player2.isQuesitoCod() == true 
-                && player2.isQuesitoFol() == true && player2.isQuesitoLms() == true 
+        if (player2.isQuesitoBds() == true && player2.isQuesitoCod() == true
+                && player2.isQuesitoFol() == true && player2.isQuesitoLms() == true
                 && player2.isQuesitoPro() == true && player2.isQuesitoSis() == true) {
+            sonido = java.applet.Applet.newAudioClip(getClass().getResource("/mediaSound/smw_course_clear.wav"));
+            sonido.play();
             JOptionPane.showMessageDialog(null, player2.getNombre() + " gaña.");
             this.toggleButtons(botonOk, boton1, boton2, boton3, boton4, boton5, boton6);
             botonOk.setEnabled(false);
