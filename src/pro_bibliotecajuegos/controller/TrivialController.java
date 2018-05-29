@@ -1,5 +1,6 @@
 package pro_bibliotecajuegos.controller;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -16,6 +17,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import pro_bibliotecajuegos.model.TrivialPlayerModel;
 import pro_bibliotecajuegos.model.TrivialQuestionModel;
+import pro_bibliotecajuegos.view.TrivialLobbyView;
 import pro_bibliotecajuegos.view.TrivialQuestionView;
 
 /**
@@ -24,7 +26,7 @@ import pro_bibliotecajuegos.view.TrivialQuestionView;
  */
 public class TrivialController {
 
-    private boolean acierto;
+    boolean acierto;
 
     TrivialQuestionView questionView;
     PrintWriter pw;
@@ -297,8 +299,9 @@ public class TrivialController {
      * @param fichero que pide el método para leer el contenido que hay en él.
      * @param player1
      * @param player2
+     * @param st
      */
-    public void leerPregunta(File fichero, TrivialPlayerModel player1, TrivialPlayerModel player2) {
+    public void leerPregunta(File fichero, TrivialPlayerModel player1, TrivialPlayerModel player2, String st, TrivialLobbyView view) throws InterruptedException {
         try {
             questionView = new TrivialQuestionView();
             // Se comprueba que jugador está activo en ese momento:
@@ -380,17 +383,26 @@ public class TrivialController {
                     }
                 }
             }
+            // Se incorporan la pregunta y las 4 respuestas a la interfaz gráfica:
             questionView.getJtTextoPregunta().setText(pregunta.get(numPregunta).getPregunta());
             questionView.getbPregunta1().setText(auxiliar[0]);
             questionView.getbPregunta2().setText(auxiliar[1]);
             questionView.getbPregunta3().setText(auxiliar[2]);
             questionView.getbPregunta4().setText(auxiliar[3]);
             res1 = numero1 + ") " + res1;
+            // Se identifica si el boton pulsado coincide con la respuesta correcta:
             questionView.getbPregunta1().addActionListener((ActionEvent ae) -> {
                 if (ae.getSource().equals(questionView.getbPregunta1())) {
                     acierto = false;
+                    // Si coincide suma 20 puntos a su Score y sigue tirando:
                     if (questionView.getbPregunta1().getText().equalsIgnoreCase(res1)) {
+                        acierto = true;
+                        this.darQuesito(st, player1, player2);
                         questionView.getJtTextoPregunta().setText("Acertaches a pregunta");
+                        /*
+                         * Estructura condicional en el que se identifica 
+                         * quien es el jugador activo para darle los puntos.
+                         */
                         if (player1.isActivo() == true) {
                             player1.setPuntuacion(player1.getPuntuacion() + 20);
                             questionView.getJtScore().setText(String.valueOf(player1.getPuntuacion()));
@@ -399,8 +411,8 @@ public class TrivialController {
                             questionView.getJtScore().setText(String.valueOf(player2.getPuntuacion()));
                         }
                     } else {
+                        // Si falla se cambian los estados de activo entre los jugadores.
                         questionView.getJtTextoPregunta().setText("Fallaches a pregunta!");
-                        acierto = false;
                         if (player1.isActivo() == true) {
                             player1.setActivo(false);
                             player2.setActivo(true);
@@ -411,11 +423,19 @@ public class TrivialController {
                     }
                 }
             });
+            // Se identifica si el boton pulsado coincide con la respuesta correcta:
             questionView.getbPregunta2().addActionListener((ActionEvent ae) -> {
                 if (ae.getSource().equals(questionView.getbPregunta2())) {
                     acierto = false;
+                    // Si coincide suma 20 puntos a su Score y sigue tirando:
                     if (questionView.getbPregunta2().getText().equalsIgnoreCase(res1)) {
+                        acierto = true;
+                        this.darQuesito(st, player1, player2);
                         questionView.getJtTextoPregunta().setText("Acertaches a pregunta");
+                        /*
+                         * Estructura condicional en el que se identifica 
+                         * quien es el jugador activo para darle los puntos.
+                         */
                         if (player1.isActivo() == true) {
                             player1.setPuntuacion(player1.getPuntuacion() + 20);
                             questionView.getJtScore().setText(String.valueOf(player1.getPuntuacion()));
@@ -424,8 +444,8 @@ public class TrivialController {
                             questionView.getJtScore().setText(String.valueOf(player2.getPuntuacion()));
                         }
                     } else {
+                        // Si falla se cambian los estados de activo entre los jugadores.
                         questionView.getJtTextoPregunta().setText("Fallaches a pregunta!");
-                        acierto = false;
                         if (player1.isActivo() == true) {
                             player1.setActivo(false);
                             player2.setActivo(true);
@@ -436,11 +456,19 @@ public class TrivialController {
                     }
                 }
             });
+            // Se identifica si el boton pulsado coincide con la respuesta correcta:
             questionView.getbPregunta3().addActionListener((ActionEvent ae) -> {
                 if (ae.getSource().equals(questionView.getbPregunta3())) {
                     acierto = false;
+                    // Si coincide suma 20 puntos a su Score y sigue tirando:
                     if (questionView.getbPregunta3().getText().equalsIgnoreCase(res1)) {
+                        acierto = true;
+                        this.darQuesito(st, player1, player2);
                         questionView.getJtTextoPregunta().setText("Acertaches a pregunta");
+                        /*
+                         * Estructura condicional en el que se identifica 
+                         * quien es el jugador activo para darle los puntos.
+                         */
                         if (player1.isActivo() == true) {
                             player1.setPuntuacion(player1.getPuntuacion() + 20);
                             questionView.getJtScore().setText(String.valueOf(player1.getPuntuacion()));
@@ -449,8 +477,8 @@ public class TrivialController {
                             questionView.getJtScore().setText(String.valueOf(player2.getPuntuacion()));
                         }
                     } else {
+                        // Si falla se cambian los estados de activo entre los jugadores.
                         questionView.getJtTextoPregunta().setText("Fallaches a pregunta!");
-                        acierto = false;
                         if (player1.isActivo() == true) {
                             player1.setActivo(false);
                             player2.setActivo(true);
@@ -461,21 +489,29 @@ public class TrivialController {
                     }
                 }
             });
+            // Se identifica si el boton pulsado coincide con la respuesta correcta:
             questionView.getbPregunta4().addActionListener((ActionEvent ae) -> {
                 if (ae.getSource().equals(questionView.getbPregunta4())) {
                     acierto = false;
+                    // Si coincide suma 20 puntos a su Score y sigue tirando:
                     if (questionView.getbPregunta4().getText().equalsIgnoreCase(res1)) {
+                        acierto = true;
+                        this.darQuesito(st, player1, player2);
                         questionView.getJtTextoPregunta().setText("Acertaches a pregunta");
+                        /*
+                         * Estructura condicional en el que se identifica 
+                         * quien es el jugador activo para darle los puntos.
+                         */
                         if (player1.isActivo() == true) {
                             player1.setPuntuacion(player1.getPuntuacion() + 20);
                             questionView.getJtScore().setText(String.valueOf(player1.getPuntuacion()));
                         } else {
+                            // Si falla se cambian los estados de activo entre los jugadores.
                             player2.setPuntuacion(player2.getPuntuacion() + 20);
                             questionView.getJtScore().setText(String.valueOf(player2.getPuntuacion()));
                         }
                     } else {
                         questionView.getJtTextoPregunta().setText("Fallaches a pregunta!");
-                        acierto = false;
                         if (player1.isActivo() == true) {
                             player1.setActivo(false);
                             player2.setActivo(true);
@@ -486,6 +522,42 @@ public class TrivialController {
                     }
                 }
             });
+            if (player1.isQuesitoCod() == true) {
+                view.getJtCod().setBackground(Color.ORANGE);
+            }
+            if (player2.isQuesitoCod() == true) {
+                view.getJtCod2().setBackground(Color.ORANGE);
+            }
+            if (player1.isQuesitoBds() == true) {
+                view.getJtBds().setBackground(Color.GREEN);
+            }
+            if (player2.isQuesitoBds() == true) {
+                view.getJtBds2().setBackground(Color.GREEN);
+            }
+            if (player1.isQuesitoFol() == true) {
+                view.getJtFol().setBackground(Color.CYAN);
+            }
+            if (player2.isQuesitoFol() == true) {
+                view.getJtFol2().setBackground(Color.CYAN);
+            }
+            if (player1.isQuesitoLms() == true) {
+                view.getJtLmsxi().setBackground(Color.MAGENTA);
+            }
+            if (player2.isQuesitoLms() == true) {
+                view.getJtLmsxi2().setBackground(Color.MAGENTA);
+            }
+            if (player1.isQuesitoSis() == true) {
+                view.getJtSis().setBackground(Color.YELLOW);
+            }
+            if (player2.isQuesitoSis() == true) {
+                view.getJtSis2().setBackground(Color.YELLOW);
+            }
+            if (player1.isQuesitoPro() == true) {
+                view.getJtPro().setBackground(Color.PINK);
+            }
+            if (player2.isQuesitoPro() == true) {
+                view.getJtPro2().setBackground(Color.PINK);
+            }
         } catch (IOException ex) {
             Logger.getLogger(TrivialQuestionModel.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
@@ -520,6 +592,57 @@ public class TrivialController {
         } else {
             pantalla.setText("Fallaches a pregunta!");
             acierto = false;
+        }
+    }
+
+    public void darQuesito(String aux, TrivialPlayerModel p1, TrivialPlayerModel p2) {
+        if (aux.equalsIgnoreCase("c")) {
+            if (p1.isActivo() == true) {
+                p1.setQuesitoCod(true);
+            }
+            if (p2.isActivo() == true) {
+                p2.setQuesitoCod(true);
+            }
+        }
+        if (aux.equalsIgnoreCase("b")) {
+            if (p1.isActivo() == true) {
+                p1.setQuesitoBds(true);
+            }
+            if (p2.isActivo() == true) {
+                p2.setQuesitoBds(true);
+            }
+        }
+        if (aux.equalsIgnoreCase("f")) {
+            if (p1.isActivo() == true) {
+                p1.setQuesitoFol(true);
+            }
+            if (p2.isActivo() == true) {
+                p2.setQuesitoFol(true);
+            }
+        }
+        if (aux.equalsIgnoreCase("l")) {
+            if (p1.isActivo() == true) {
+                p1.setQuesitoLms(true);
+            }
+            if (p2.isActivo() == true) {
+                p2.setQuesitoLms(true);
+            }
+        }
+        if (aux.equalsIgnoreCase("s")) {
+            if (p1.isActivo() == true) {
+                p1.setQuesitoSis(true);
+            }
+            if (p2.isActivo() == true) {
+                p2.setQuesitoSis(true);
+            }
+        }
+        if (aux.equalsIgnoreCase("p")) {
+            if (p1.isActivo() == true) {
+                p1.setQuesitoPro(true);
+            }
+            if (p2.isActivo() == true) {
+                p2.setQuesitoPro(true);
+            }
         }
     }
 }

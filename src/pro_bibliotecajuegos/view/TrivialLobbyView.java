@@ -5,8 +5,10 @@
  */
 package pro_bibliotecajuegos.view;
 
+import java.awt.Color;
 import java.io.File;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import pro_bibliotecajuegos.controller.TrivialController;
 import pro_bibliotecajuegos.model.TrivialPlayerModel;
 
@@ -28,12 +30,108 @@ public class TrivialLobbyView extends javax.swing.JFrame {
     String listaFol = "FicheroPreguntasFOL.txt";
     String listaCod = "FicheroPreguntasCOD.txt";
     File fichero;
-    
+
     /**
      * Creates new form TrivialLobbyView
      */
     public TrivialLobbyView() {
         initComponents();
+    }
+
+    public JTextField getJtBds() {
+        return jtBds;
+    }
+
+    public void setJtBds(JTextField jtBds) {
+        this.jtBds = jtBds;
+    }
+
+    public JTextField getJtBds2() {
+        return jtBds2;
+    }
+
+    public void setJtBds2(JTextField jtBds2) {
+        this.jtBds2 = jtBds2;
+    }
+
+    public JTextField getJtCod() {
+        return jtCod;
+    }
+
+    public void setJtCod(JTextField jtCod) {
+        this.jtCod = jtCod;
+    }
+
+    public JTextField getJtCod2() {
+        return jtCod2;
+    }
+
+    public void setJtCod2(JTextField jtCod2) {
+        this.jtCod2 = jtCod2;
+    }
+
+    public JTextField getJtFol() {
+        return jtFol;
+    }
+
+    public void setJtFol(JTextField jtFol) {
+        this.jtFol = jtFol;
+    }
+
+    public JTextField getJtFol2() {
+        return jtFol2;
+    }
+
+    public void setJtFol2(JTextField jtFol2) {
+        this.jtFol2 = jtFol2;
+    }
+
+    public JTextField getJtLmsxi() {
+        return jtLmsxi;
+    }
+
+    public void setJtLmsxi(JTextField jtLmsxi) {
+        this.jtLmsxi = jtLmsxi;
+    }
+
+    public JTextField getJtLmsxi2() {
+        return jtLmsxi2;
+    }
+
+    public void setJtLmsxi2(JTextField jtLmsxi2) {
+        this.jtLmsxi2 = jtLmsxi2;
+    }
+
+    public JTextField getJtPro() {
+        return jtPro;
+    }
+
+    public void setJtPro(JTextField jtPro) {
+        this.jtPro = jtPro;
+    }
+
+    public JTextField getJtPro2() {
+        return jtPro2;
+    }
+
+    public void setJtPro2(JTextField jtPro2) {
+        this.jtPro2 = jtPro2;
+    }
+
+    public JTextField getJtSis() {
+        return jtSis;
+    }
+
+    public void setJtSis(JTextField jtSis) {
+        this.jtSis = jtSis;
+    }
+
+    public JTextField getJtSis2() {
+        return jtSis2;
+    }
+
+    public void setJtSis2(JTextField jtSis2) {
+        this.jtSis2 = jtSis2;
     }
 
     /**
@@ -113,6 +211,11 @@ public class TrivialLobbyView extends javax.swing.JFrame {
         jtPro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtProActionPerformed(evt);
+            }
+        });
+        jtPro.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jtProPropertyChange(evt);
             }
         });
 
@@ -365,37 +468,43 @@ public class TrivialLobbyView extends javax.swing.JFrame {
 
     private void bSisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSisActionPerformed
         fichero = new File(listaSis);
-        control.leerPregunta(fichero, player1, player2);
+        control.leerPregunta(fichero, player1, player2, "s", this);
     }//GEN-LAST:event_bSisActionPerformed
 
     private void bProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bProActionPerformed
         fichero = new File(listaPro);
-        control.leerPregunta(fichero, player1, player2);
+        control.leerPregunta(fichero, player1, player2, "p", this);
     }//GEN-LAST:event_bProActionPerformed
 
     private void bCodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCodActionPerformed
         fichero = new File(listaCod);
-        control.leerPregunta(fichero, player1, player2);
+        control.leerPregunta(fichero, player1, player2, "c", this);
     }//GEN-LAST:event_bCodActionPerformed
 
     private void bBdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBdActionPerformed
         fichero = new File(listaBds);
-        control.leerPregunta(fichero, player1, player2);
+        control.leerPregunta(fichero, player1, player2, "b", this);
     }//GEN-LAST:event_bBdActionPerformed
 
     private void bLmsxiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLmsxiActionPerformed
         fichero = new File(listaLmsxi);
-        control.leerPregunta(fichero, player1, player2);
+        control.leerPregunta(fichero, player1, player2, "l", this);
     }//GEN-LAST:event_bLmsxiActionPerformed
 
     private void bFolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bFolActionPerformed
         fichero = new File(listaFol);
-        control.leerPregunta(fichero, player1, player2);
+        control.leerPregunta(fichero, player1, player2, "f", this);
     }//GEN-LAST:event_bFolActionPerformed
 
     private void jtProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtProActionPerformed
-        // Si questido (true) da color
+        if (player1.isQuesitoPro() == true) {
+            jtPro.setBackground(Color.pink);
+        }
     }//GEN-LAST:event_jtProActionPerformed
+
+    private void jtProPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jtProPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtProPropertyChange
 
     /**
      * @param args the command line arguments
@@ -430,10 +539,10 @@ public class TrivialLobbyView extends javax.swing.JFrame {
                 new TrivialLobbyView().setVisible(true);
             }
         });
-        
+
         // Cuando el jugador X esté activo se marcará poniendo el nombre en amarillo.
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bBd;
     private javax.swing.JButton bCod;
