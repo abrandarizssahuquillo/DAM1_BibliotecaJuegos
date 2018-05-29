@@ -300,8 +300,9 @@ public class TrivialController {
      * @param player1
      * @param player2
      * @param st
+     * @param view
      */
-    public void leerPregunta(File fichero, TrivialPlayerModel player1, TrivialPlayerModel player2, String st, TrivialLobbyView view) throws InterruptedException {
+    public void leerPregunta(File fichero, TrivialPlayerModel player1, TrivialPlayerModel player2, String st, TrivialLobbyView view) {
         try {
             questionView = new TrivialQuestionView();
             // Se comprueba que jugador está activo en ese momento:
@@ -522,42 +523,6 @@ public class TrivialController {
                     }
                 }
             });
-            if (player1.isQuesitoCod() == true) {
-                view.getJtCod().setBackground(Color.ORANGE);
-            }
-            if (player2.isQuesitoCod() == true) {
-                view.getJtCod2().setBackground(Color.ORANGE);
-            }
-            if (player1.isQuesitoBds() == true) {
-                view.getJtBds().setBackground(Color.GREEN);
-            }
-            if (player2.isQuesitoBds() == true) {
-                view.getJtBds2().setBackground(Color.GREEN);
-            }
-            if (player1.isQuesitoFol() == true) {
-                view.getJtFol().setBackground(Color.CYAN);
-            }
-            if (player2.isQuesitoFol() == true) {
-                view.getJtFol2().setBackground(Color.CYAN);
-            }
-            if (player1.isQuesitoLms() == true) {
-                view.getJtLmsxi().setBackground(Color.MAGENTA);
-            }
-            if (player2.isQuesitoLms() == true) {
-                view.getJtLmsxi2().setBackground(Color.MAGENTA);
-            }
-            if (player1.isQuesitoSis() == true) {
-                view.getJtSis().setBackground(Color.YELLOW);
-            }
-            if (player2.isQuesitoSis() == true) {
-                view.getJtSis2().setBackground(Color.YELLOW);
-            }
-            if (player1.isQuesitoPro() == true) {
-                view.getJtPro().setBackground(Color.PINK);
-            }
-            if (player2.isQuesitoPro() == true) {
-                view.getJtPro2().setBackground(Color.PINK);
-            }
         } catch (IOException ex) {
             Logger.getLogger(TrivialQuestionModel.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
@@ -643,6 +608,82 @@ public class TrivialController {
             if (p2.isActivo() == true) {
                 p2.setQuesitoPro(true);
             }
+        }
+    }
+
+    public void colorQuesito(TrivialLobbyView view) {
+        if (view.getPlayer1().isQuesitoCod() == true) {
+            view.getJtCod().setBackground(Color.ORANGE);
+        }
+        if (view.getPlayer2().isQuesitoCod() == true) {
+            view.getJtCod2().setBackground(Color.ORANGE);
+        }
+        if (view.getPlayer1().isQuesitoBds() == true) {
+            view.getJtBds().setBackground(Color.GREEN);
+        }
+        if (view.getPlayer2().isQuesitoBds() == true) {
+            view.getJtBds2().setBackground(Color.GREEN);
+        }
+        if (view.getPlayer1().isQuesitoFol() == true) {
+            view.getJtFol().setBackground(Color.CYAN);
+        }
+        if (view.getPlayer2().isQuesitoFol() == true) {
+            view.getJtFol2().setBackground(Color.CYAN);
+        }
+        if (view.getPlayer1().isQuesitoLms() == true) {
+            view.getJtLmsxi().setBackground(Color.MAGENTA);
+        }
+        if (view.getPlayer2().isQuesitoLms() == true) {
+            view.getJtLmsxi2().setBackground(Color.MAGENTA);
+        }
+        if (view.getPlayer1().isQuesitoSis() == true) {
+            view.getJtSis().setBackground(Color.YELLOW);
+        }
+        if (view.getPlayer2().isQuesitoSis() == true) {
+            view.getJtSis2().setBackground(Color.YELLOW);
+        }
+        if (view.getPlayer1().isQuesitoPro() == true) {
+            view.getJtPro().setBackground(Color.PINK);
+        }
+        if (view.getPlayer2().isQuesitoPro() == true) {
+            view.getJtPro2().setBackground(Color.PINK);
+        }
+    }
+
+    public void toggleButtons(JButton botonOk, JButton boton1, JButton boton2, JButton boton3, JButton boton4, JButton boton5, JButton boton6) {
+        if (botonOk.isEnabled() == true) {
+            botonOk.setEnabled(false);
+            boton1.setEnabled(true);
+            boton2.setEnabled(true);
+            boton3.setEnabled(true);
+            boton4.setEnabled(true);
+            boton5.setEnabled(true);
+            boton6.setEnabled(true);
+        } else {
+            botonOk.setEnabled(true);
+            boton1.setEnabled(false);
+            boton2.setEnabled(false);
+            boton3.setEnabled(false);
+            boton4.setEnabled(false);
+            boton5.setEnabled(false);
+            boton6.setEnabled(false);
+        }
+    }
+    
+    public void comprobarGanador(TrivialPlayerModel player1, TrivialPlayerModel player2, JButton botonOk, JButton boton1, JButton boton2, JButton boton3, JButton boton4, JButton boton5, JButton boton6) {
+        if (player1.isQuesitoBds() == true && player1.isQuesitoCod() == true 
+                && player1.isQuesitoFol() == true && player1.isQuesitoLms() == true 
+                && player1.isQuesitoPro() == true && player1.isQuesitoSis() == true) {
+            JOptionPane.showMessageDialog(null, player1.getNombre() + " gaña.");
+            this.toggleButtons(botonOk, boton1, boton2, boton3, boton4, boton5, boton6);
+            botonOk.setEnabled(false);
+        }
+        if (player2.isQuesitoBds() == true && player2.isQuesitoCod() == true 
+                && player2.isQuesitoFol() == true && player2.isQuesitoLms() == true 
+                && player2.isQuesitoPro() == true && player2.isQuesitoSis() == true) {
+            JOptionPane.showMessageDialog(null, player2.getNombre() + " gaña.");
+            this.toggleButtons(botonOk, boton1, boton2, boton3, boton4, boton5, boton6);
+            botonOk.setEnabled(false);
         }
     }
 }
