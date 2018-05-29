@@ -134,6 +134,22 @@ public class TrivialLobbyView extends javax.swing.JFrame {
         this.jtSis2 = jtSis2;
     }
 
+    public TrivialPlayerModel getPlayer1() {
+        return player1;
+    }
+
+    public void setPlayer1(TrivialPlayerModel player1) {
+        this.player1 = player1;
+    }
+
+    public TrivialPlayerModel getPlayer2() {
+        return player2;
+    }
+
+    public void setPlayer2(TrivialPlayerModel player2) {
+        this.player2 = player2;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -174,6 +190,7 @@ public class TrivialLobbyView extends javax.swing.JFrame {
         bLmsxi = new javax.swing.JButton();
         bFol = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -281,6 +298,7 @@ public class TrivialLobbyView extends javax.swing.JFrame {
 
         bPro.setBackground(new java.awt.Color(255, 102, 255));
         bPro.setText("PRO");
+        bPro.setEnabled(false);
         bPro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bProActionPerformed(evt);
@@ -289,6 +307,7 @@ public class TrivialLobbyView extends javax.swing.JFrame {
 
         bBd.setBackground(new java.awt.Color(0, 204, 0));
         bBd.setText("BD");
+        bBd.setEnabled(false);
         bBd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bBdActionPerformed(evt);
@@ -297,6 +316,7 @@ public class TrivialLobbyView extends javax.swing.JFrame {
 
         bSis.setBackground(new java.awt.Color(255, 255, 0));
         bSis.setText("SI");
+        bSis.setEnabled(false);
         bSis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bSisActionPerformed(evt);
@@ -305,6 +325,7 @@ public class TrivialLobbyView extends javax.swing.JFrame {
 
         bCod.setBackground(new java.awt.Color(255, 153, 0));
         bCod.setText("COD");
+        bCod.setEnabled(false);
         bCod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bCodActionPerformed(evt);
@@ -313,6 +334,7 @@ public class TrivialLobbyView extends javax.swing.JFrame {
 
         bLmsxi.setBackground(new java.awt.Color(204, 0, 204));
         bLmsxi.setText("LMS");
+        bLmsxi.setEnabled(false);
         bLmsxi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bLmsxiActionPerformed(evt);
@@ -321,6 +343,7 @@ public class TrivialLobbyView extends javax.swing.JFrame {
 
         bFol.setBackground(new java.awt.Color(0, 204, 255));
         bFol.setText("FOL");
+        bFol.setEnabled(false);
         bFol.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bFolActionPerformed(evt);
@@ -330,6 +353,13 @@ public class TrivialLobbyView extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("¿Cál é a seguinte pregunta que queres contestar?");
+
+        jButton1.setText("OK");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -402,8 +432,10 @@ public class TrivialLobbyView extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jtLmsxi, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jtFol, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                .addContainerGap(61, Short.MAX_VALUE))
+                                        .addComponent(jtFol, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(45, 45, 45)
+                        .addComponent(jButton1)))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -417,39 +449,45 @@ public class TrivialLobbyView extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(jLabel2)
                     .addComponent(jLabel1))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jlJugador1)
-                    .addComponent(jtPro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtBds, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtSis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtCod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtLmsxi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtFol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jlJugador2)
-                    .addComponent(jtPro2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtBds2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtSis2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtCod2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtLmsxi2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtFol2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bPro)
-                    .addComponent(bBd)
-                    .addComponent(bSis))
-                .addGap(37, 37, 37)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bCod)
-                    .addComponent(bLmsxi)
-                    .addComponent(bFol))
-                .addGap(66, 66, 66))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jlJugador1)
+                            .addComponent(jtPro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtBds, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtSis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtCod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtLmsxi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtFol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jlJugador2)
+                            .addComponent(jtPro2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtBds2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtSis2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtCod2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtLmsxi2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtFol2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(bPro)
+                            .addComponent(bBd)
+                            .addComponent(bSis))
+                        .addGap(37, 37, 37)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(bCod)
+                            .addComponent(bLmsxi)
+                            .addComponent(bFol))
+                        .addGap(66, 66, 66))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(jButton1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -467,44 +505,54 @@ public class TrivialLobbyView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bSisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSisActionPerformed
+        control.toggleButtons(jButton1, bBd, bCod, bFol, bSis, bLmsxi, bPro);
         fichero = new File(listaSis);
         control.leerPregunta(fichero, player1, player2, "s", this);
     }//GEN-LAST:event_bSisActionPerformed
 
     private void bProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bProActionPerformed
+        control.toggleButtons(jButton1, bBd, bCod, bFol, bSis, bLmsxi, bPro);
         fichero = new File(listaPro);
         control.leerPregunta(fichero, player1, player2, "p", this);
     }//GEN-LAST:event_bProActionPerformed
 
     private void bCodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCodActionPerformed
+        control.toggleButtons(jButton1, bBd, bCod, bFol, bSis, bLmsxi, bPro);
         fichero = new File(listaCod);
         control.leerPregunta(fichero, player1, player2, "c", this);
     }//GEN-LAST:event_bCodActionPerformed
 
     private void bBdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBdActionPerformed
+        control.toggleButtons(jButton1, bBd, bCod, bFol, bSis, bLmsxi, bPro);
         fichero = new File(listaBds);
         control.leerPregunta(fichero, player1, player2, "b", this);
     }//GEN-LAST:event_bBdActionPerformed
 
     private void bLmsxiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLmsxiActionPerformed
+        control.toggleButtons(jButton1, bBd, bCod, bFol, bSis, bLmsxi, bPro);
         fichero = new File(listaLmsxi);
         control.leerPregunta(fichero, player1, player2, "l", this);
     }//GEN-LAST:event_bLmsxiActionPerformed
 
     private void bFolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bFolActionPerformed
+        control.toggleButtons(jButton1, bBd, bCod, bFol, bSis, bLmsxi, bPro);
         fichero = new File(listaFol);
         control.leerPregunta(fichero, player1, player2, "f", this);
     }//GEN-LAST:event_bFolActionPerformed
 
     private void jtProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtProActionPerformed
-        if (player1.isQuesitoPro() == true) {
-            jtPro.setBackground(Color.pink);
-        }
+        
     }//GEN-LAST:event_jtProActionPerformed
 
     private void jtProPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jtProPropertyChange
         // TODO add your handling code here:
     }//GEN-LAST:event_jtProPropertyChange
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        control.toggleButtons(jButton1, bBd, bCod, bFol, bSis, bLmsxi, bPro);
+        control.comprobarGanador(player1, player2, jButton1, bBd, bCod, bFol, bSis, bLmsxi, bPro);
+        control.colorQuesito(this);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -550,6 +598,7 @@ public class TrivialLobbyView extends javax.swing.JFrame {
     private javax.swing.JButton bLmsxi;
     private javax.swing.JButton bPro;
     private javax.swing.JButton bSis;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
