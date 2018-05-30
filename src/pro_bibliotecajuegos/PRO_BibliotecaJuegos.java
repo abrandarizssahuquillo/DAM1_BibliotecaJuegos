@@ -5,6 +5,7 @@
  */
 package pro_bibliotecajuegos;
 
+import pro_bibliotecajuegos.controller.TrivialControllerDataBase;
 import pro_bibliotecajuegos.view.TrivialLobbyView;
 
 /**

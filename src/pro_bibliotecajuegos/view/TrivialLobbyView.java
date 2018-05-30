@@ -5,11 +5,11 @@
  */
 package pro_bibliotecajuegos.view;
 
-import java.awt.Color;
 import java.io.File;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import pro_bibliotecajuegos.controller.TrivialController;
+import pro_bibliotecajuegos.controller.TrivialControllerDataBase;
 import pro_bibliotecajuegos.model.TrivialPlayerModel;
 
 /**
@@ -23,6 +23,7 @@ public class TrivialLobbyView extends javax.swing.JFrame {
     TrivialPlayerModel player1 = new TrivialPlayerModel(nombre, 0, true);
     TrivialPlayerModel player2 = new TrivialPlayerModel(nombre2, 0, false);
     TrivialController control = new TrivialController();
+    TrivialControllerDataBase controldb = new TrivialControllerDataBase();
     String listaPro = "FicheroPreguntasPRO.txt";
     String listaSis = "FicheroPreguntasSI.txt";
     String listaBds = "FicheroPreguntasBD.txt";
@@ -191,6 +192,7 @@ public class TrivialLobbyView extends javax.swing.JFrame {
         bFol = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -361,6 +363,13 @@ public class TrivialLobbyView extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setText("SCORE");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -436,12 +445,18 @@ public class TrivialLobbyView extends javax.swing.JFrame {
                         .addGap(45, 45, 45)
                         .addComponent(jButton1)))
                 .addContainerGap(52, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton2)
+                .addGap(1, 1, 1)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jLabel3)
@@ -550,9 +565,13 @@ public class TrivialLobbyView extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         control.toggleButtons(jButton1, bBd, bCod, bFol, bSis, bLmsxi, bPro);
-        control.comprobarGanador(player1, player2, jButton1, bBd, bCod, bFol, bSis, bLmsxi, bPro);
         control.colorQuesito(this);
+        control.comprobarGanador(player1, player2, jButton1, bBd, bCod, bFol, bSis, bLmsxi, bPro);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        control.ventanaScore();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -599,6 +618,7 @@ public class TrivialLobbyView extends javax.swing.JFrame {
     private javax.swing.JButton bPro;
     private javax.swing.JButton bSis;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
