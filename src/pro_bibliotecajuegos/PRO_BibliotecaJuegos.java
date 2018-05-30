@@ -7,6 +7,7 @@ package pro_bibliotecajuegos;
 
 import pro_bibliotecajuegos.controller.TrivialControllerDataBase;
 import pro_bibliotecajuegos.view.TrivialLobbyView;
+import pro_bibliotecajuegos.view.TrivialSplashScreen;
 
 /**
  *
@@ -18,8 +19,10 @@ public class PRO_BibliotecaJuegos {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        TrivialLobbyView lobby = new TrivialLobbyView();
-        lobby.setVisible(true);
+        //TrivialLobbyView lobby = new TrivialLobbyView();
+        //lobby.setVisible(true);
+        TrivialSplashScreen screen = new TrivialSplashScreen();
+        screen.setVisible(true);
         
     }
     
