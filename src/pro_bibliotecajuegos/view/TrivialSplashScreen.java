@@ -70,6 +70,7 @@ public class TrivialSplashScreen extends javax.swing.JFrame {
         jPanel1.setOpaque(false);
         jPanel1.setLayout(null);
 
+        jProgressBar1.setForeground(new java.awt.Color(0, 204, 0));
         jProgressBar1.setOpaque(true);
         jPanel1.add(jProgressBar1);
         jProgressBar1.setBounds(40, 400, 440, 14);
