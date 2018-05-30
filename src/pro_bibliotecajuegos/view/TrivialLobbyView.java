@@ -37,6 +37,8 @@ public class TrivialLobbyView extends javax.swing.JFrame {
      */
     public TrivialLobbyView() {
         initComponents();
+        // Centrar la pantalla:
+        this.setLocationRelativeTo(null);
     }
 
     public JTextField getJtBds() {

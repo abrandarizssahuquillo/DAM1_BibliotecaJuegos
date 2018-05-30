@@ -554,11 +554,15 @@ public class TrivialController {
 
     public void ventanaScore() {
         if (scoreView.isVisible() == false) {
+            sonido = java.applet.Applet.newAudioClip(getClass().getResource("/mediaSound/smw_message_block.wav"));
+            sonido.play();
             scoreView.setVisible(true);
             controldb.connect();
             controldb.createTable();
             controldb.select(scoreView.getModel());
         } else {
+            sonido = java.applet.Applet.newAudioClip(getClass().getResource("/mediaSound/smw_princess_help.wav"));
+            sonido.play();
             controldb.disconnect();
             scoreView.setVisible(false);
         }
