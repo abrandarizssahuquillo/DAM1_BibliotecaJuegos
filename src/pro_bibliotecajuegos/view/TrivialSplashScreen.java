@@ -42,7 +42,7 @@ public class TrivialSplashScreen extends javax.swing.JFrame {
         initComponents();
         AWTUtilities.setWindowOpaque(this, false);
         this.setLocationRelativeTo(null);
-        this.setSize(512, 512);
+        this.setSize(580, 581);
         t.start();
         if (jProgressBar1.getValue() < 100) {
             jProgressBar1.setValue(jProgressBar1.getValue() + 10);
@@ -73,21 +73,23 @@ public class TrivialSplashScreen extends javax.swing.JFrame {
         jProgressBar1.setForeground(new java.awt.Color(0, 204, 0));
         jProgressBar1.setOpaque(true);
         jPanel1.add(jProgressBar1);
-        jProgressBar1.setBounds(40, 400, 440, 14);
+        jProgressBar1.setBounds(70, 430, 440, 14);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mediaImages/logoSplashScreen.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mediaImages/slice.png"))); // NOI18N
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(0, 0, 520, 504);
+        jLabel1.setBounds(0, 0, 580, 530);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 524, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 586, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 553, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
