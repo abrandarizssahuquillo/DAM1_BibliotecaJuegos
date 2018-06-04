@@ -73,7 +73,7 @@ public class TrivialSplashScreen extends javax.swing.JFrame {
         jProgressBar1.setForeground(new java.awt.Color(0, 204, 0));
         jProgressBar1.setOpaque(true);
         jPanel1.add(jProgressBar1);
-        jProgressBar1.setBounds(70, 430, 440, 14);
+        jProgressBar1.setBounds(20, 540, 540, 14);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mediaImages/slice.png"))); // NOI18N
         jPanel1.add(jLabel1);
@@ -87,9 +87,7 @@ public class TrivialSplashScreen extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 553, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 567, Short.MAX_VALUE)
         );
 
         pack();
