@@ -5,13 +5,11 @@
  */
 package pro_bibliotecajuegos;
 
-import pro_bibliotecajuegos.controller.TrivialControllerDataBase;
-import pro_bibliotecajuegos.view.TrivialLobbyView;
 import pro_bibliotecajuegos.view.TrivialSplashScreen;
 
 /**
  *
- * @author Hansen
+ * @author abrandarizdominguez & ssahuquilloembade
  */
 public class PRO_BibliotecaJuegos {
 
@@ -23,7 +21,6 @@ public class PRO_BibliotecaJuegos {
         //lobby.setVisible(true);
         TrivialSplashScreen screen = new TrivialSplashScreen();
         screen.setVisible(true);
-        
     }
     
 }

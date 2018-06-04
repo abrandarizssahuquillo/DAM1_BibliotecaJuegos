@@ -16,7 +16,7 @@ import pro_bibliotecajuegos.controller.TrivialController;
 
 /**
  *
- * @author Hansen
+ * @author abrandarizdominguez & ssahuquilloembade
  */
 public class TrivialQuestionView extends javax.swing.JFrame {
 

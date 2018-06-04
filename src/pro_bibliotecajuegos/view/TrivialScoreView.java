@@ -10,7 +10,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Hansen
+ * @author abrandarizdominguez & ssahuquilloembade
  */
 public class TrivialScoreView extends javax.swing.JFrame {
 

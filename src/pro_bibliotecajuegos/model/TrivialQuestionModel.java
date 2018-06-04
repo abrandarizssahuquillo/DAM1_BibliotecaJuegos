@@ -7,7 +7,7 @@ package pro_bibliotecajuegos.model;
 
 /**
  *
- * @author Hansen
+ * @author abrandarizdominguez & ssahuquilloembade
  */
 public class TrivialQuestionModel {
     

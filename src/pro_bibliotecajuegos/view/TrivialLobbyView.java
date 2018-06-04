@@ -14,7 +14,7 @@ import pro_bibliotecajuegos.model.TrivialPlayerModel;
 
 /**
  *
- * @author Hansen
+ * @author abrandarizdominguez & ssahuquilloembade
  */
 public class TrivialLobbyView extends javax.swing.JFrame {
 

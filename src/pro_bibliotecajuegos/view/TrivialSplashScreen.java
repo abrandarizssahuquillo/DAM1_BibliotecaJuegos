@@ -3,9 +3,7 @@ package pro_bibliotecajuegos.view;
 import com.sun.awt.AWTUtilities;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JFrame;
 import javax.swing.Timer;
-import pro_bibliotecajuegos.controller.TrivialController;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -14,7 +12,7 @@ import pro_bibliotecajuegos.controller.TrivialController;
  */
 /**
  *
- * @author Hansen
+ * @author abrandarizdominguez & ssahuquilloembade
  */
 public class TrivialSplashScreen extends javax.swing.JFrame {
 

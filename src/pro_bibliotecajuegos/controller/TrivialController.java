@@ -13,7 +13,6 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import pro_bibliotecajuegos.model.TrivialPlayerModel;
@@ -24,7 +23,7 @@ import pro_bibliotecajuegos.view.TrivialScoreView;
 
 /**
  *
- * @author Hansen
+ * @author abrandarizdominguez & ssahuquilloembade
  */
 public class TrivialController {
 
